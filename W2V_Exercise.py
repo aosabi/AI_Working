@@ -94,7 +94,7 @@ for word in word_list[0]:
 # 事前準備したword_listを使ってWord2Vecの学習実施
 model = word2vec.Word2Vec(word_list, size=100,min_count=5,window=5,iter=100)
 
-print("三四郎の話のなかの単語を解析したデータをもとに、「世間」に")
+print("三四郎の話のなかの単語を解析したデータをもとに、「世間」に近い単語を抽出")
 
 print(model.__dict__['wv']['世間'])
 
