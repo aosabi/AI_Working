@@ -8,6 +8,11 @@ import re
 from janome.tokenizer import Tokenizer
 from gensim.models import word2vec
 
+"""
+https://qiita.com/makaishi2/items/63b7986f6da93dc55edd
+の個人練習用ファイル
+"""
+
 
 
 urllib.request.urlretrieve(url, zip)
