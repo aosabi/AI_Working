@@ -46,6 +46,8 @@ text = re.sub('\r', '', text)
 # 整形結果確認
 
 # 頭の100文字の表示
+print("①ダウンロードした青空文庫の冒頭を表示")
+print("ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー")
 print(text[:100])
 # 見やすくするため、空行
 print()
@@ -78,7 +80,9 @@ sentences = text.split('。')
 word_list = [extract_words(sentence) for sentence in sentences]
 
 # 結果の一部を確認
-print("形態素解析の結果を確認")
+print("②形態素解析の結果を確認")
+print("ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー")
+
 for word in word_list[0]:
     print(word)
 
@@ -94,11 +98,12 @@ for word in word_list[0]:
 # 事前準備したword_listを使ってWord2Vecの学習実施
 model = word2vec.Word2Vec(word_list, size=100,min_count=5,window=5,iter=100)
 
-print("三四郎の話のなかの単語を解析したデータをもとに、「世間」に近い単語を抽出")
-
+print("③学習したモデルから、「世間」を表すベクトルを表示")
+print("ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー")
 print(model.__dict__['wv']['世間'])
 
-
+print("④三四郎の話のなかの単語を解析したデータをもとに、「世間」に近い単語を抽出")
+print("ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー")
 ret = model.wv.most_similar(positive=['世間'])
 for item in ret:
     print(item[0], item[1])
